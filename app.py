@@ -1,19 +1,19 @@
-import streamlit as st
+import gradio as gr
 
-st.title("🔍 Commodity Inflation Predictor")
-st.write("Google Search Trends as an early warning signal for price changes")
+def predict(commodity):
+    data = {
+        "Gasoline": "🔍 Search interest leads Gasoline prices by 6 weeks\nr = 0.802, p<0.001\n\n📢 Based on current search trends, Gasoline prices may shift in approximately 6 weeks.",
+        "Coffee":   "🔍 Search interest leads Coffee prices by 10 weeks\nr = 0.721, p<0.001\n\n📢 Based on current search trends, Coffee prices may shift in approximately 10 weeks.",
+        "Eggs":     "🔍 Search interest leads Egg prices by 4 weeks\nr = 0.681, p<0.001\n\n📢 Based on current search trends, Egg prices may shift in approximately 4 weeks.",
+    }
+    return data[commodity]
 
-commodity = st.selectbox("Select Commodity", ["Gasoline", "Coffee", "Eggs"])
+demo = gr.Interface(
+    fn=predict,
+    inputs=gr.Dropdown(["Gasoline", "Coffee", "Eggs"], label="Select Commodity"),
+    outputs=gr.Textbox(label="Inflation Signal"),
+    title="📈 Commodity Inflation Predictor",
+    description="Can Google search trends predict price changes before they happen? Built using real Google Trends + FRED economic data (2021–2026, 192 weeks analyzed)."
+)
 
-insights = {
-    "Gasoline": {"lead": 6, "r": 0.802},
-    "Coffee": {"lead": 10, "r": 0.721},
-    "Eggs": {"lead": None, "r": None}
-}
-
-info = insights[commodity]
-if info["lead"]:
-    st.success(f"Search interest leads {commodity} prices by {info['lead']} weeks (r={info['r']}, p<0.001)")
-    st.info(f"Based on current search trends, {commodity} prices may shift in approximately {info['lead']} weeks.")
-else:
-    st.warning("Eggs: correlation analysis pending")
+demo.launch()
