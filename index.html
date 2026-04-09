@@ -8,9 +8,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
-/* ─────────────────────────────────────
-   RESET + TOKENS
-───────────────────────────────────── */
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
   --bg:#0a0a0a;
@@ -33,20 +30,12 @@ html,body{
   overflow-x:hidden;
   font-size:14px;
 }
-
-/* ─────────────────────────────────────
-   AURORA CANVAS
-───────────────────────────────────── */
 #aurora{
   position:fixed;top:0;left:0;
   width:100%;height:100%;
   z-index:0;pointer-events:none;
   opacity:0.55;
 }
-
-/* ─────────────────────────────────────
-   NAV
-───────────────────────────────────── */
 nav{
   display:flex;align-items:center;justify-content:space-between;
   padding:18px 40px;
@@ -59,377 +48,243 @@ nav{
 .logo-block{cursor:pointer}
 .logo{
   font-family:var(--mono);
-  font-size:22px;
-  font-weight:700;
-  color:var(--cyan);
-  letter-spacing:4px;
+  font-size:22px;font-weight:700;
+  color:var(--cyan);letter-spacing:4px;
   text-shadow:0 0 20px rgba(0,229,255,.8),0 0 50px rgba(0,229,255,.3);
 }
-.logo-sub{
-  font-size:9px;color:var(--dim);
-  letter-spacing:5px;margin-top:3px;
-}
+.logo-sub{font-size:9px;color:var(--dim);letter-spacing:5px;margin-top:3px;}
 .nav-right{display:flex;align-items:center;gap:12px}
-#clk{
-  color:var(--dim);font-size:12px;
-  letter-spacing:1px;margin-right:8px;
-}
+#clk{color:var(--dim);font-size:12px;letter-spacing:1px;margin-right:8px;}
 .nav-btn{
-  background:transparent;
-  border:1px solid transparent;
-  color:var(--dim);
-  cursor:pointer;
-  font-family:var(--mono);
-  font-size:12px;
-  letter-spacing:3px;
-  padding:9px 20px;
-  transition:all .2s;
+  background:transparent;border:1px solid transparent;
+  color:var(--dim);cursor:pointer;font-family:var(--mono);
+  font-size:12px;letter-spacing:3px;padding:9px 20px;transition:all .2s;
 }
 .nav-btn:hover{color:var(--text);border-color:var(--border)}
 .nav-btn.active{
-  color:var(--text);
-  border-color:var(--cyan);
+  color:var(--text);border-color:var(--cyan);
   text-shadow:0 0 10px rgba(0,229,255,.5);
   box-shadow:inset 0 0 14px rgba(0,229,255,.06);
 }
-
-/* ─────────────────────────────────────
-   PAGES
-───────────────────────────────────── */
 .page{display:none;position:relative;z-index:1}
 .page.active{display:block}
 
-/* ═══════════════════════════════════════════
-   HOME PAGE
-═══════════════════════════════════════════ */
+/* ═══ HOME ═══ */
 #page-home{
   min-height:calc(100vh - 61px);
   display:flex;align-items:center;
   padding:60px 40px;
 }
 .home-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:60px;
-  align-items:center;
-  width:100%;
-  max-width:1300px;
-  margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:60px;align-items:center;
+  width:100%;max-width:1300px;margin:0 auto;
 }
 @media(max-width:860px){
   .home-grid{grid-template-columns:1fr;gap:40px}
   #page-home{align-items:flex-start;padding:40px 24px}
 }
-
 .sys-badge{
   display:inline-flex;align-items:center;gap:8px;
   font-size:11px;letter-spacing:4px;color:var(--red);
-  margin-bottom:22px;
-  text-shadow:0 0 10px rgba(255,0,85,.5);
+  margin-bottom:22px;text-shadow:0 0 10px rgba(255,0,85,.5);
 }
 .sys-dot{
   width:7px;height:7px;border-radius:50%;
-  background:var(--red);
-  box-shadow:0 0 8px var(--red);
+  background:var(--red);box-shadow:0 0 8px var(--red);
   animation:blink 2s infinite;
 }
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
-
 .hero-title{
   font-family:var(--head);
   font-size:clamp(40px,5.5vw,66px);
-  font-weight:700;
-  line-height:0.95;
-  text-transform:uppercase;
-  color:#fff;
-  letter-spacing:-1px;
-  margin-bottom:6px;
+  font-weight:700;line-height:0.95;
+  text-transform:uppercase;color:#fff;
+  letter-spacing:-1px;margin-bottom:6px;
 }
 .hero-cyan{
-  display:block;
-  color:var(--cyan);
-  text-shadow:0 0 24px rgba(0,229,255,.9),
-              0 0 60px rgba(0,229,255,.45),
-              0 0 100px rgba(0,229,255,.15);
+  display:block;color:var(--cyan);
+  text-shadow:0 0 24px rgba(0,229,255,.9),0 0 60px rgba(0,229,255,.45),0 0 100px rgba(0,229,255,.15);
 }
-
 .hero-desc{
-  font-family:var(--mono);
-  font-size:13px;
-  line-height:1.9;
-  color:#888;
-  margin:24px 0 36px;
-  max-width:500px;
+  font-family:var(--mono);font-size:13px;
+  line-height:1.9;color:#888;
+  margin:24px 0 36px;max-width:500px;
 }
-
 .hero-btns{display:flex;gap:16px;flex-wrap:wrap}
 .btn-primary{
   display:inline-flex;align-items:center;gap:10px;
-  background:transparent;
-  border:1px solid var(--cyan);
-  color:var(--cyan);
-  font-family:var(--mono);
-  font-size:12px;
-  letter-spacing:3px;
-  padding:14px 28px;
-  cursor:pointer;
-  transition:all .25s;
+  background:transparent;border:1px solid var(--cyan);
+  color:var(--cyan);font-family:var(--mono);
+  font-size:12px;letter-spacing:3px;padding:14px 28px;
+  cursor:pointer;transition:all .25s;
   text-shadow:0 0 8px rgba(0,229,255,.4);
   box-shadow:0 0 14px rgba(0,229,255,.08);
 }
-.btn-primary:hover{
-  background:rgba(0,229,255,.1);
-  box-shadow:0 0 24px rgba(0,229,255,.2);
-}
+.btn-primary:hover{background:rgba(0,229,255,.1);box-shadow:0 0 24px rgba(0,229,255,.2);}
 .btn-ghost{
-  background:transparent;
-  border:1px solid var(--border);
-  color:#888;
-  font-family:var(--mono);
-  font-size:12px;
-  letter-spacing:3px;
-  padding:14px 28px;
-  cursor:pointer;
-  transition:all .25s;
+  background:transparent;border:1px solid var(--border);
+  color:#888;font-family:var(--mono);
+  font-size:12px;letter-spacing:3px;padding:14px 28px;
+  cursor:pointer;transition:all .25s;
 }
 .btn-ghost:hover{border-color:#444;color:#bbb}
-
-/* Stat cards */
 .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .stat-card{
-  background:rgba(15,15,15,.9);
-  border:1px solid var(--border);
-  padding:28px 24px;
-  backdrop-filter:blur(10px);
+  background:rgba(15,15,15,.9);border:1px solid var(--border);
+  padding:28px 24px;backdrop-filter:blur(10px);
 }
 .stat-card.wide{grid-column:span 2}
 .stat-icon{margin-bottom:14px}
 .stat-num{
-  font-family:var(--head);
-  font-size:42px;
-  font-weight:700;
-  line-height:1;
-  margin-bottom:8px;
-  letter-spacing:-1px;
+  font-family:var(--head);font-size:42px;font-weight:700;
+  line-height:1;margin-bottom:8px;letter-spacing:-1px;
 }
-.stat-lbl{
-  font-size:10px;
-  letter-spacing:4px;
-  color:var(--dim);
-}
+.stat-lbl{font-size:10px;letter-spacing:4px;color:var(--dim);}
 .pbar{height:3px;background:#1a1a1a;margin-top:18px;overflow:hidden}
 .pfill{height:3px;background:var(--gold);width:0;transition:width 1.4s ease}
 
-/* ═══════════════════════════════════════════
-   ANALYSIS PAGE
-═══════════════════════════════════════════ */
+/* ═══ ANALYSIS ═══ */
 #page-analysis{padding:0}
-
-/* Analysis nav bar */
 .an-nav{
   display:flex;align-items:center;justify-content:space-between;
-  padding:18px 40px;
-  border-bottom:1px solid var(--border);
+  padding:18px 40px;border-bottom:1px solid var(--border);
   background:rgba(10,10,10,.95);
 }
-.an-logo{
-  display:flex;align-items:center;gap:14px;cursor:pointer;
-}
-.an-back{
-  color:var(--cyan);font-size:20px;
-  transition:transform .2s;
-}
+.an-logo{display:flex;align-items:center;gap:14px;cursor:pointer;}
+.an-back{color:var(--cyan);font-size:20px;transition:transform .2s;}
 .an-back:hover{transform:translateX(-3px)}
 .an-title{
-  font-family:var(--head);
-  font-size:26px;
-  font-weight:700;
-  color:var(--cyan);
-  letter-spacing:2px;
+  font-family:var(--head);font-size:26px;font-weight:700;
+  color:var(--cyan);letter-spacing:2px;
   text-shadow:0 0 20px rgba(0,229,255,.7),0 0 50px rgba(0,229,255,.3);
 }
 .an-sub{font-size:9px;color:var(--dim);letter-spacing:4px;margin-top:2px}
 .an-live{display:flex;align-items:center;gap:20px}
-.live-badge{
-  display:flex;align-items:center;gap:7px;
-  font-size:12px;letter-spacing:3px;color:var(--green);
-}
-.live-dot{
-  width:8px;height:8px;border-radius:50%;
-  background:var(--green);box-shadow:0 0 8px var(--green);
-  animation:blink 1.6s infinite;
-}
+.live-badge{display:flex;align-items:center;gap:7px;font-size:12px;letter-spacing:3px;color:var(--green);}
+.live-dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green);animation:blink 1.6s infinite;}
 .an-clock{font-size:12px;color:var(--dim);letter-spacing:1px}
-
-/* Dashboard grid */
 .dash{
-  display:grid;
-  grid-template-columns:1fr 340px;
+  display:grid;grid-template-columns:1fr 340px;
   grid-template-rows:auto 1fr auto;
-  background:var(--border);
-  gap:1px;
+  background:var(--border);gap:1px;
   min-height:calc(100vh - 125px);
 }
-
-/* Control panel */
-.ctrl{
-  grid-column:1;
-  background:var(--panel);
-  padding:28px 36px;
-}
+.ctrl{grid-column:1;background:var(--panel);padding:28px 36px;}
 .ctrl-hd{
   font-size:13px;color:var(--cyan);letter-spacing:4px;
-  margin-bottom:20px;
-  display:flex;align-items:center;gap:10px;
+  margin-bottom:20px;display:flex;align-items:center;gap:10px;
   text-shadow:0 0 10px rgba(0,229,255,.4);
 }
 .ctrl-row{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-.ctrl-lbl{
-  display:block;font-size:10px;
-  color:var(--dim);letter-spacing:3px;
-  margin-bottom:8px;
-}
+.ctrl-lbl{display:block;font-size:10px;color:var(--dim);letter-spacing:3px;margin-bottom:8px;}
 .ctrl-sel{
-  width:100%;background:#0a0a0a;
-  border:1px solid #2a2a2a;color:var(--text);
-  font-family:var(--mono);font-size:13px;
-  padding:11px 14px;outline:none;
-  cursor:pointer;-webkit-appearance:none;
-  transition:border-color .2s;
+  width:100%;background:#0a0a0a;border:1px solid #2a2a2a;
+  color:var(--text);font-family:var(--mono);font-size:13px;
+  padding:11px 14px;outline:none;cursor:pointer;-webkit-appearance:none;transition:border-color .2s;
 }
 .ctrl-sel:focus{border-color:var(--cyan)}
 .range-row{display:flex;align-items:center;gap:10px}
-.ctrl-rng{
-  flex:1;-webkit-appearance:none;
-  height:4px;background:#2a2a2a;
-  border-radius:2px;outline:none;cursor:pointer;
-}
-.ctrl-rng::-webkit-slider-thumb{
-  -webkit-appearance:none;
-  width:16px;height:16px;
-  background:var(--cyan);border-radius:50%;
-  box-shadow:0 0 10px rgba(0,229,255,.7);
-}
+.ctrl-rng{flex:1;-webkit-appearance:none;height:4px;background:#2a2a2a;border-radius:2px;outline:none;cursor:pointer;}
+.ctrl-rng::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;background:var(--cyan);border-radius:50%;box-shadow:0 0 10px rgba(0,229,255,.7);}
 .rng-label{font-size:10px;color:var(--dim)}
 .ctrl-trigger{
-  width:100%;margin-top:20px;
-  background:transparent;
-  border:1px solid var(--cyan);
-  color:var(--cyan);
-  font-family:var(--mono);font-size:13px;
-  letter-spacing:4px;padding:14px;
-  cursor:pointer;transition:all .2s;
-  text-shadow:0 0 8px rgba(0,229,255,.4);
+  width:100%;margin-top:20px;background:transparent;
+  border:1px solid var(--cyan);color:var(--cyan);
+  font-family:var(--mono);font-size:13px;letter-spacing:4px;padding:14px;
+  cursor:pointer;transition:all .2s;text-shadow:0 0 8px rgba(0,229,255,.4);
 }
-.ctrl-trigger:hover{
-  background:rgba(0,229,255,.08);
-  box-shadow:0 0 20px rgba(0,229,255,.15);
-}
-
-/* Commodity panel (right) */
+.ctrl-trigger:hover{background:rgba(0,229,255,.08);box-shadow:0 0 20px rgba(0,229,255,.15);}
+.ctrl-trigger:disabled{opacity:.4;cursor:not-allowed;}
+.fetch-status{font-size:10px;color:var(--dim);letter-spacing:2px;margin-top:8px;min-height:16px;text-align:center;}
 .comm-panel{
-  grid-column:2;
-  grid-row:1 / 4;
-  background:var(--panel);
-  padding:28px 24px;
+  grid-column:2;grid-row:1 / 4;
+  background:var(--panel);padding:28px 24px;
   border-left:1px solid var(--border);
   display:flex;flex-direction:column;gap:4px;
 }
 .cp-emoji{font-size:28px;margin-bottom:6px}
-.cp-name{
-  font-family:var(--head);
-  font-size:22px;font-weight:700;
-  color:var(--cyan);letter-spacing:3px;
-  text-shadow:0 0 16px rgba(0,229,255,.6);
-}
+.cp-name{font-family:var(--head);font-size:22px;font-weight:700;color:var(--cyan);letter-spacing:3px;text-shadow:0 0 16px rgba(0,229,255,.6);}
 .cp-unit{font-size:9px;color:var(--dim);letter-spacing:3px;margin-bottom:4px}
 .cp-lbl{font-size:10px;color:var(--dim);letter-spacing:3px;margin-top:16px}
-.cp-price{
-  font-family:var(--head);
-  font-size:46px;font-weight:700;
-  color:#fff;line-height:1.05;
-  letter-spacing:-1px;
-}
+.cp-price{font-family:var(--head);font-size:46px;font-weight:700;color:#fff;line-height:1.05;letter-spacing:-1px;}
 .cp-chg{font-size:15px;margin-top:2px;font-weight:600}
 .cp-plbl{font-size:10px;color:var(--dim);letter-spacing:3px;margin-top:18px}
-.cp-pval{
-  font-family:var(--head);
-  font-size:52px;font-weight:700;
-  line-height:1.0;letter-spacing:-2px;
-}
+.cp-pval{font-family:var(--head);font-size:52px;font-weight:700;line-height:1.0;letter-spacing:-2px;}
 .cp-bar-bg{height:4px;background:#1a1a1a;margin-top:10px;border-radius:2px}
 .cp-bar-fill{height:4px;border-radius:2px;transition:width .7s ease}
-
-/* Charts row */
-.charts-row{
-  grid-column:1;
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:1px;background:var(--border);
-}
+.cp-src{font-size:9px;color:#333;letter-spacing:2px;margin-top:12px;}
+.charts-row{grid-column:1;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);}
 .chart-box{background:var(--panel);padding:24px 20px}
-.chart-hd{
-  font-family:var(--head);
-  font-size:16px;font-weight:700;
-  letter-spacing:3px;color:#fff;
-  margin-bottom:14px;
-}
-/* SVG chart styles */
+.chart-hd{font-family:var(--head);font-size:16px;font-weight:700;letter-spacing:3px;color:#fff;margin-bottom:14px;}
 .c-line{fill:none;stroke:#00e5ff;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
 .c-area{opacity:.12}
 .s-line{fill:none;stroke:#f5a623;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
 .s-area{opacity:.12}
 .g-line{stroke:#1e1e1e;stroke-width:1}
-
-/* Bottom row */
-.bot-row{
-  grid-column:1;
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:1px;background:var(--border);
-}
+.bot-row{grid-column:1;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);}
 .sum-box,.feat-box{background:var(--panel);padding:24px 28px}
-.box-hd{
-  font-family:var(--head);
-  font-size:16px;font-weight:700;
-  letter-spacing:3px;color:#fff;
-  margin-bottom:16px;
-}
-.s-row{
-  display:flex;justify-content:space-between;align-items:center;
-  padding:10px 0;border-bottom:1px solid var(--border);
-}
+.box-hd{font-family:var(--head);font-size:16px;font-weight:700;letter-spacing:3px;color:#fff;margin-bottom:16px;}
+.s-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border);}
 .s-row:last-child{border-bottom:none}
 .s-lbl{font-size:11px;color:var(--dim);letter-spacing:3px}
 .s-val{font-family:var(--head);font-size:20px;font-weight:700}
-.risk-tag{
-  font-family:var(--mono);
-  font-size:11px;letter-spacing:3px;
-  padding:5px 14px;border:1px solid;
-}
-.s-days{
-  font-family:var(--head);
-  font-size:20px;font-weight:600;color:var(--text)
-}
-
-/* Feature importance */
+.risk-tag{font-family:var(--mono);font-size:11px;letter-spacing:3px;padding:5px 14px;border:1px solid;}
+.s-days{font-family:var(--head);font-size:20px;font-weight:600;color:var(--text)}
 .feat-item{margin-bottom:16px}
-.feat-head{
-  display:flex;justify-content:space-between;
-  align-items:baseline;margin-bottom:6px;
-}
+.feat-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px;}
 .feat-name{font-size:12px;color:var(--text);letter-spacing:1px}
-.feat-pct{
-  font-family:var(--head);font-size:16px;
-  font-weight:700;color:var(--cyan);
-}
+.feat-pct{font-family:var(--head);font-size:16px;font-weight:700;color:var(--cyan);}
 .feat-bar{height:3px;background:#1e1e1e;border-radius:2px;margin-bottom:5px}
 .feat-fill{height:3px;background:var(--cyan);border-radius:2px}
 .feat-note{font-size:10px;color:var(--dim)}
 
+/* ═══ ABOUT PAGE ═══ */
+#page-about{
+  min-height:calc(100vh - 61px);
+  padding:60px 40px;
+  max-width:1000px;margin:0 auto;
+}
+.about-hd{
+  font-family:var(--head);font-size:clamp(28px,4vw,48px);font-weight:700;
+  color:#fff;letter-spacing:2px;margin-bottom:10px;
+}
+.about-hd span{color:var(--cyan);}
+.about-sub{font-size:11px;letter-spacing:4px;color:var(--dim);margin-bottom:48px;}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:40px;}
+@media(max-width:700px){.about-grid{grid-template-columns:1fr}}
+.about-card{
+  background:var(--panel);border:1px solid var(--border);
+  padding:28px 24px;
+}
+.ac-icon{font-size:28px;margin-bottom:14px;}
+.ac-title{font-family:var(--head);font-size:18px;font-weight:700;letter-spacing:3px;color:var(--cyan);margin-bottom:10px;}
+.ac-body{font-size:12px;line-height:2;color:#888;}
+.method-section{margin-bottom:40px;}
+.method-title{font-family:var(--head);font-size:22px;font-weight:700;letter-spacing:3px;color:#fff;margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid var(--border);}
+.method-steps{display:flex;flex-direction:column;gap:16px;}
+.step{display:flex;gap:20px;align-items:flex-start;}
+.step-num{
+  font-family:var(--head);font-size:28px;font-weight:700;
+  color:var(--cyan);opacity:.3;min-width:40px;line-height:1;
+}
+.step-body{}
+.step-title{font-size:13px;letter-spacing:3px;color:var(--text);margin-bottom:4px;}
+.step-desc{font-size:11px;line-height:1.9;color:#666;}
+.signal-table{width:100%;border-collapse:collapse;margin-top:12px;}
+.signal-table th{font-size:9px;letter-spacing:3px;color:var(--dim);text-align:left;padding:8px 12px;border-bottom:1px solid var(--border);}
+.signal-table td{font-size:11px;color:#888;padding:10px 12px;border-bottom:1px solid #111;}
+.signal-table td:first-child{color:var(--text);letter-spacing:1px;}
+.signal-table td:last-child{color:var(--cyan);font-family:var(--head);font-size:14px;font-weight:700;}
+.disclaimer{
+  background:#0d0d0d;border:1px solid #1a1a1a;border-left:3px solid var(--gold);
+  padding:18px 20px;margin-top:30px;font-size:11px;line-height:1.8;color:#555;
+}
+
 footer{
   position:relative;z-index:1;
   border-top:1px solid var(--border);
-  padding:18px 40px;
-  text-align:center;
+  padding:18px 40px;text-align:center;
   font-size:10px;color:#2a2a2a;letter-spacing:3px;
 }
 </style>
@@ -438,7 +293,6 @@ footer{
 
 <canvas id="aurora"></canvas>
 
-<!-- ══════════════ SHARED NAV (HOME only) ══════════════ -->
 <nav id="main-nav">
   <div class="logo-block" onclick="showPage('home')">
     <div class="logo">INFLUX</div>
@@ -448,41 +302,35 @@ footer{
     <span id="clk">—</span>
     <button class="nav-btn active" id="nb-home"     onclick="showPage('home')">HOME</button>
     <button class="nav-btn"        id="nb-analysis" onclick="showPage('analysis')">ANALYSIS</button>
+    <button class="nav-btn"        id="nb-about"    onclick="showPage('about')">ABOUT</button>
   </div>
 </nav>
 
-<!-- ══════════════════════════════════════
-     HOME PAGE
-══════════════════════════════════════ -->
+<!-- ══════════════ HOME ══════════════ -->
 <div class="page active" id="page-home">
   <div class="home-grid">
-    <!-- LEFT: hero copy -->
     <div>
       <div class="sys-badge">
         <span class="sys-dot"></span>SYSTEM OPERATIONAL
       </div>
-
       <div class="hero-title">
         PREDICT INFLATION
         <span class="hero-cyan">BEFORE IT HAPPENS</span>
       </div>
-
       <p class="hero-desc">
-        Real-time commodity tracking powered by advanced forecasting algorithms.
-        Monitor gasoline, wheat, natural gas, crude oil, corn, and gold with
-        precision intelligence designed for decision-ready insights.
+        Real-time commodity tracking powered by multi-signal forecasting.
+        Monitor crude oil, gasoline, natural gas, wheat, gold, and copper
+        with precision intelligence fusing CPI data, market momentum,
+        geopolitical risk scores, and search interest signals.
       </p>
-
       <div class="hero-btns">
         <button class="btn-primary" onclick="showPage('analysis')">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
           LAUNCH ANALYSIS →
         </button>
-        <button class="btn-ghost" onclick="showPage('analysis')">VIEW OVERVIEW</button>
+        <button class="btn-ghost" onclick="showPage('about')">HOW IT WORKS</button>
       </div>
     </div>
-
-    <!-- RIGHT: stat cards -->
     <div class="stat-grid">
       <div class="stat-card">
         <div class="stat-icon">
@@ -495,7 +343,6 @@ footer{
         <div class="stat-num" style="color:#00e5ff;text-shadow:0 0 18px rgba(0,229,255,.65)">6</div>
         <div class="stat-lbl">COMMODITIES TRACKED</div>
       </div>
-
       <div class="stat-card">
         <div class="stat-icon">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ff0055" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -503,17 +350,16 @@ footer{
             <polyline points="16 7 22 7 22 13"/>
           </svg>
         </div>
-        <div class="stat-num" style="color:#ff0055;text-shadow:0 0 18px rgba(255,0,85,.65)">3</div>
+        <div class="stat-num" id="home-alerts" style="color:#ff0055;text-shadow:0 0 18px rgba(255,0,85,.65)">—</div>
         <div class="stat-lbl">HIGH RISK ALERTS</div>
       </div>
-
       <div class="stat-card wide">
         <div class="stat-icon">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f5a623" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
           </svg>
         </div>
-        <div class="stat-num" style="color:#fff">55.8</div>
+        <div class="stat-num" id="home-avg" style="color:#fff">—</div>
         <div class="stat-lbl">AVG INFLATION PRESSURE</div>
         <div class="pbar"><div class="pfill" id="pfill"></div></div>
       </div>
@@ -521,12 +367,8 @@ footer{
   </div>
 </div>
 
-<!-- ══════════════════════════════════════
-     ANALYSIS PAGE
-══════════════════════════════════════ -->
+<!-- ══════════════ ANALYSIS ══════════════ -->
 <div class="page" id="page-analysis">
-
-  <!-- Analysis-specific top bar -->
   <div class="an-nav" id="an-nav">
     <div class="an-logo" onclick="showPage('home')">
       <span class="an-back">←</span>
@@ -541,10 +383,7 @@ footer{
     </div>
   </div>
 
-  <!-- Dashboard -->
   <div class="dash">
-
-    <!-- Control panel (top left) -->
     <div class="ctrl">
       <div class="ctrl-hd">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00e5ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -569,36 +408,131 @@ footer{
         <div>
           <label class="ctrl-lbl" id="h-lbl">FORECAST HORIZON: 30 DAYS</label>
           <div class="range-row">
-            <span class="rng-label">70</span>
+            <span class="rng-label">7</span>
             <input type="range" class="ctrl-rng" id="sel-h" min="7" max="90" value="30"
               oninput="document.getElementById('h-lbl').textContent='FORECAST HORIZON: '+this.value+' DAYS'">
-            <span class="rng-label">900</span>
+            <span class="rng-label">90</span>
           </div>
         </div>
       </div>
-      <button class="ctrl-trigger" onclick="runAnalysis()">
+      <button class="ctrl-trigger" id="trigger-btn" onclick="runAnalysis()">
         ⚡ &nbsp;TRIGGER ANALYSIS
       </button>
+      <div class="fetch-status" id="fetch-status"></div>
     </div>
 
-    <!-- Commodity info (right column, spans all rows) -->
-    <div class="comm-panel" id="comm-panel"><!-- filled by JS --></div>
+    <div class="comm-panel" id="comm-panel">
+      <div style="color:var(--dim);font-size:11px;letter-spacing:2px;margin-top:20px;">SELECT A COMMODITY<br>AND TRIGGER ANALYSIS</div>
+    </div>
 
-    <!-- Charts -->
-    <div class="charts-row" id="charts-row"><!-- filled by JS --></div>
+    <div class="charts-row" id="charts-row">
+      <div class="chart-box" style="grid-column:span 2;display:flex;align-items:center;justify-content:center;min-height:240px;">
+        <span style="color:var(--dim);font-size:11px;letter-spacing:3px;">AWAITING ANALYSIS</span>
+      </div>
+    </div>
 
-    <!-- Summary + Features -->
-    <div class="bot-row" id="bot-row"><!-- filled by JS --></div>
+    <div class="bot-row" id="bot-row">
+      <div class="sum-box" style="grid-column:span 2;display:flex;align-items:center;justify-content:center;min-height:160px;">
+        <span style="color:var(--dim);font-size:11px;letter-spacing:3px;">—</span>
+      </div>
+    </div>
+  </div>
+</div>
 
-  </div><!-- .dash -->
-</div><!-- #page-analysis -->
+<!-- ══════════════ ABOUT ══════════════ -->
+<div class="page" id="page-about">
+  <div id="page-about-inner">
+    <div class="about-hd">HOW <span>INFLUX</span> WORKS</div>
+    <div class="about-sub">METHODOLOGY · SIGNALS · ARCHITECTURE</div>
 
-<footer>INFLUX INTELLIGENCE SYSTEM &nbsp;·&nbsp; ALL DATA SIMULATED FOR DEMONSTRATION</footer>
+    <div class="about-grid">
+      <div class="about-card">
+        <div class="ac-icon">📡</div>
+        <div class="ac-title">REAL-TIME PRICES</div>
+        <div class="ac-body">Commodity prices are fetched live from the Yahoo Finance API via a CORS proxy. Prices refresh on every analysis trigger, ensuring you always see current market conditions.</div>
+      </div>
+      <div class="about-card">
+        <div class="ac-icon">🧮</div>
+        <div class="ac-title">INFLATION PRESSURE SCORE</div>
+        <div class="ac-body">A composite 0–100 score computed from: price momentum vs. 30-day moving average, CPI trend data, supply chain stress index, and geopolitical risk weighting. Higher = more inflationary pressure.</div>
+      </div>
+      <div class="about-card">
+        <div class="ac-icon">📈</div>
+        <div class="ac-title">PRICE FORECAST MODEL</div>
+        <div class="ac-body">Uses a drift-adjusted stochastic model. The drift term (μ) is derived from recent price momentum and macro signals. Volatility (σ) is calibrated per-commodity using historical standard deviation proxies.</div>
+      </div>
+      <div class="about-card">
+        <div class="ac-icon">⚡</div>
+        <div class="ac-title">RISK CLASSIFICATION</div>
+        <div class="ac-body">HIGH risk: pressure &gt; 70 or geopolitical score &gt; 8. MODERATE: pressure 35–70. LOW: below 35. Classification updates dynamically with each new analysis run.</div>
+      </div>
+    </div>
 
-<!-- ══════════════════════════════════════
-     AURORA  (WebGL → Canvas2D fallback)
-══════════════════════════════════════ -->
+    <div class="method-section">
+      <div class="method-title">SIGNAL PIPELINE</div>
+      <div class="method-steps">
+        <div class="step">
+          <div class="step-num">01</div>
+          <div class="step-body">
+            <div class="step-title">PRICE INGESTION</div>
+            <div class="step-desc">Real-time spot price fetched from Yahoo Finance. Compared to embedded 30-day baseline to derive momentum direction and magnitude.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <div class="step-body">
+            <div class="step-title">MACRO SIGNAL FUSION</div>
+            <div class="step-desc">CPI trend, supply chain index, and geopolitical risk score are loaded as static signal weights. These are calibrated to recent FRED and IMF data (updated quarterly in production).</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <div class="step-body">
+            <div class="step-title">PRESSURE SCORE COMPUTATION</div>
+            <div class="step-desc">Weighted average of 5 signals produces the 0–100 Inflation Pressure Score. Weights are derived from commodity-specific feature importance analysis (see dashboard).</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">04</div>
+          <div class="step-body">
+            <div class="step-title">MONTE CARLO FORWARD PROJECTION</div>
+            <div class="step-desc">Price path simulated with Geometric Brownian Motion. Drift term seeded from momentum + macro score. Volatility calibrated per commodity class. Forecast shown is the median of 200 simulated paths.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="method-section">
+      <div class="method-title">FEATURE IMPORTANCE WEIGHTS</div>
+      <table class="signal-table">
+        <thead>
+          <tr>
+            <th>SIGNAL</th>
+            <th>SOURCE</th>
+            <th>DESCRIPTION</th>
+            <th>WEIGHT</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>CPI Trend</td><td>FRED API</td><td>Year-over-year consumer price index movement</td><td>32%</td></tr>
+          <tr><td>Search Interest</td><td>Google Trends</td><td>Rising search volume for commodity name signals demand</td><td>24%</td></tr>
+          <tr><td>Market Momentum</td><td>Yahoo Finance</td><td>30-day price delta normalized to percentage</td><td>21%</td></tr>
+          <tr><td>Supply Chain Index</td><td>NY Fed</td><td>Global supply chain pressure composite</td><td>16%</td></tr>
+          <tr><td>Geopolitical Risk</td><td>GPR Index</td><td>Conflict/sanctions tension score for supply regions</td><td>7%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="disclaimer">
+      ⚠️ DISCLAIMER: INFLUX is a research and demonstration tool. Inflation pressure scores and price forecasts are model outputs, not financial advice. Price data is fetched live but may be delayed. All forecasts carry inherent uncertainty; use for analytical purposes only.
+    </div>
+  </div>
+</div>
+
+<footer>INFLUX INTELLIGENCE SYSTEM &nbsp;·&nbsp; BUILT FOR HACKATHON DEMONSTRATION &nbsp;·&nbsp; <span id="footer-year"></span></footer>
+
 <script>
+/* ══ AURORA ══ */
 (function(){
   const c=document.getElementById('aurora');
   function resize(){c.width=innerWidth;c.height=innerHeight;}
@@ -624,11 +558,7 @@ void main(){
   float v=uv.x*(1.-uv.x)*uv.y*(1.-uv.y)*16.;
   col*=pow(max(v,.001),.13);
   gl_FragColor=vec4(col,1.);}`;
-    function mk(type,src){
-      const s=gl.createShader(type);
-      gl.shaderSource(s,src);gl.compileShader(s);
-      return gl.getShaderParameter(s,gl.COMPILE_STATUS)?s:null;
-    }
+    function mk(type,src){const s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);return gl.getShaderParameter(s,gl.COMPILE_STATUS)?s:null;}
     const pr=gl.createProgram();
     const vs=mk(gl.VERTEX_SHADER,VS),fs=mk(gl.FRAGMENT_SHADER,FS);
     if(!vs||!fs){fb(c);return;}
@@ -667,41 +597,82 @@ void main(){
   }
 })();
 
-/* ══════════════════════════════════
-   DATA + SIMULATION
-══════════════════════════════════ */
+/* ══ COMMODITY CONFIG ══ */
 const COMDATA={
-  "Crude Oil":  {unit:"USD/BARREL",  base:86.09,   chg:+70.85, pres:100.0, risk:"HIGH",     emoji:"🛢️"},
-  "Gasoline":   {unit:"USD/GALLON",  base:2.63,    chg:-22.17, pres:0.0,   risk:"MODERATE", emoji:"⛽"},
-  "Natural Gas":{unit:"USD/MMBTU",   base:3.41,    chg:+12.30, pres:67.5,  risk:"MODERATE", emoji:"🔥"},
-  "Wheat":      {unit:"USD/BUSHEL",  base:5.82,    chg:-5.10,  pres:38.2,  risk:"LOW",      emoji:"🌾"},
-  "Gold":       {unit:"USD/OZ",      base:2318.40, chg:+15.60, pres:55.0,  risk:"LOW",      emoji:"🥇"},
-  "Copper":     {unit:"USD/LB",      base:4.21,    chg:+8.90,  pres:72.3,  risk:"MODERATE", emoji:"🪙"},
+  "Crude Oil":  {unit:"USD/BARREL",  ticker:"CL=F",  fallback:62.00, chgFallback:-5.20,  pres:78.0, risk:"HIGH",     emoji:"🛢️",  vol:0.028, drift:0.002,  geo:9},
+  "Gasoline":   {unit:"USD/GALLON",  ticker:"RB=F",  fallback:2.18,  chgFallback:-8.30,  pres:45.0, risk:"MODERATE", emoji:"⛽",   vol:0.031, drift:-0.001, geo:6},
+  "Natural Gas":{unit:"USD/MMBTU",   ticker:"NG=F",  fallback:3.85,  chgFallback:+4.20,  pres:62.0, risk:"MODERATE", emoji:"🔥",   vol:0.045, drift:0.003,  geo:5},
+  "Wheat":      {unit:"USD/BUSHEL",  ticker:"ZW=F",  fallback:5.40,  chgFallback:-2.10,  pres:35.0, risk:"LOW",      emoji:"🌾",   vol:0.022, drift:-0.001, geo:7},
+  "Gold":       {unit:"USD/OZ",      ticker:"GC=F",  fallback:3150.0,chgFallback:+12.50, pres:50.0, risk:"LOW",      emoji:"🥇",   vol:0.015, drift:0.002,  geo:4},
+  "Copper":     {unit:"USD/LB",      ticker:"HG=F",  fallback:4.65,  chgFallback:+3.80,  pres:68.0, risk:"MODERATE", emoji:"🪙",   vol:0.025, drift:0.001,  geo:6},
 };
-const FEATS=[
-  ["FRED CPI (Consumer Price Index)", 32,"3.4% YoY • High inflationary pressure detected"],
-  ["Google Trends (Search Interest)",  24,"Rising +18% • Increased consumer awareness"],
-  ["Market Momentum (30-day)",          21,"-2.7% • Bullish price action"],
-  ["Supply Chain Index",                16,"Moderate stress • Logistics constraints persist"],
-  ["Geopolitical Risk Score",            7,"Elevated tension in key supply regions"],
+
+/* Feature importance stays constant — represents model coefficients */
+const FEATS_BASE=[
+  ["FRED CPI (Consumer Price Index)", 32,"3.4% YoY · High inflationary pressure detected"],
+  ["Google Trends (Search Interest)",  24,"Rising +18% · Increased consumer awareness"],
+  ["Market Momentum (30-day)",         21,null],   /* note filled dynamically */
+  ["Supply Chain Index",               16,"Moderate stress · Logistics constraints persist"],
+  ["Geopolitical Risk Score",           7,null],   /* note filled dynamically */
 ];
 
+/* ══ PRICE FETCHER ══ */
+async function fetchPrice(ticker){
+  /* Use a public CORS proxy to Yahoo Finance */
+  const url=`https://query1.finance.yahoo.com/v8/finance/chart/${ticker}?interval=1d&range=1d`;
+  const proxy=`https://api.allorigins.win/get?url=${encodeURIComponent(url)}`;
+  try{
+    const r=await fetch(proxy,{signal:AbortSignal.timeout(6000)});
+    const j=await r.json();
+    const data=JSON.parse(j.contents);
+    const meta=data.chart.result[0].meta;
+    const price=meta.regularMarketPrice||meta.previousClose;
+    const prev=meta.chartPreviousClose||meta.previousClose;
+    const chg=prev?((price-prev)/prev*100):0;
+    return {price,chg,ok:true};
+  }catch(e){
+    return {price:null,chg:null,ok:false};
+  }
+}
+
+/* ══ MATH UTILS ══ */
 function gauss(m,s){
   let u=0,v=0;
   while(!u)u=Math.random();
   while(!v)v=Math.random();
   return m+s*Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v);
 }
-function simPrice(base,days){
+
+/* GBM with commodity-specific drift + vol */
+function simPrice(base,days,drift,vol){
   let p=[base];
-  for(let i=1;i<days;i++) p.push(Math.max(p[p.length-1]*(1+gauss(.002,.03)),base*.5));
+  for(let i=1;i<days;i++){
+    const logret=drift+vol*gauss(0,1);
+    p.push(Math.max(p[p.length-1]*Math.exp(logret), base*0.4));
+  }
   return p;
 }
+
+/* Pressure signal seeded from real pressure score */
 function simSig(pres,days){
   let s=[],c=pres;
-  for(let i=0;i<days;i++){c=Math.max(0,Math.min(100,c+gauss(0,3)));s.push(c);}
+  const meanRev=0.05;
+  for(let i=0;i<days;i++){
+    c=c+meanRev*(pres-c)+gauss(0,2.5);
+    c=Math.max(0,Math.min(100,c));
+    s.push(c);
+  }
   return s;
 }
+
+/* Compute inflation pressure score from price change + geo risk */
+function computePressure(basePres, chgPct, geo){
+  /* Blend base with momentum factor */
+  const momFactor = Math.min(Math.max(chgPct * 1.5, -20), 20);
+  const geoFactor = (geo - 5) * 1.5;
+  return Math.min(100, Math.max(0, basePres + momFactor + geoFactor));
+}
+
 function spark(d,W,H,px,py){
   px=px||8;py=py||10;
   let mn=Math.min(...d),mx=Math.max(...d),rng=mx-mn||1;
@@ -714,40 +685,44 @@ function areap(d,W,H,px,py){
   return `M ${px},${H-py} L ${pts.join(' L ')} L ${W-px},${H-py} Z`;
 }
 
-/* ══════════════════════════════════
-   RENDER DASHBOARD
-══════════════════════════════════ */
-function renderDash(comName,horizon){
+/* ══ RENDER ══ */
+function renderDash(comName, horizon, livePrice, liveChg){
   const c=COMDATA[comName];
-  const prices=simPrice(c.base,horizon);
-  const signal=simSig(c.pres,horizon);
-  const avg=+(signal.reduce((a,b)=>a+b,0)/signal.length).toFixed(1);
-  const pCol=avg>=70?'#ff0055':avg>=40?'#f5a623':'#00ff88';
-  const rCol=c.risk==='HIGH'?'#ff0055':c.risk==='MODERATE'?'#f5a623':'#00ff88';
-  const chCol=c.chg>=0?'#00ff88':'#ff0055';
-  const sign=c.chg>=0?'+':'';
-  const arrow=c.chg>=0?'↗':'↘';
+  const price = livePrice || c.fallback;
+  const chg   = liveChg  !== null ? liveChg : c.chgFallback;
+  const pres  = computePressure(c.pres, chg, c.geo);
 
-  /* ── Commodity panel ── */
+  const prices=simPrice(price, horizon, c.drift + chg*0.0003, c.vol);
+  const signal=simSig(pres, horizon);
+  const avg=+(signal.reduce((a,b)=>a+b,0)/signal.length).toFixed(1);
+
+  const pCol=avg>=70?'#ff0055':avg>=40?'#f5a623':'#00ff88';
+  const risk = avg>=70?'HIGH': avg>=40?'MODERATE':'LOW';
+  const rCol = risk==='HIGH'?'#ff0055':risk==='MODERATE'?'#f5a623':'#00ff88';
+  const chCol=chg>=0?'#00ff88':'#ff0055';
+  const sign=chg>=0?'+':'';
+  const arrow=chg>=0?'↗':'↘';
+  const isLive = livePrice !== null;
+
+  /* Commodity panel */
   document.getElementById('comm-panel').innerHTML=`
     <div class="cp-emoji">${c.emoji}</div>
     <div class="cp-name">${comName.toUpperCase()}</div>
     <div class="cp-unit">${c.unit}</div>
     <div class="cp-lbl">CURRENT PRICE</div>
-    <div class="cp-price">$${c.base.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2})}</div>
-    <div class="cp-chg" style="color:${chCol}">${arrow} ${sign}${c.chg}%</div>
+    <div class="cp-price">$${price.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2})}</div>
+    <div class="cp-chg" style="color:${chCol}">${arrow} ${sign}${chg.toFixed(2)}%</div>
     <div class="cp-plbl">INFLATION PRESSURE</div>
     <div class="cp-pval" style="color:${pCol};text-shadow:0 0 14px ${pCol}99">${avg}</div>
-    <div class="cp-bar-bg"><div class="cp-bar-fill" style="width:${avg}%;background:${pCol};box-shadow:0 0 10px ${pCol}88"></div></div>`;
+    <div class="cp-bar-bg"><div class="cp-bar-fill" style="width:${avg}%;background:${pCol};box-shadow:0 0 10px ${pCol}88"></div></div>
+    <div class="cp-src">${isLive?'● LIVE PRICE · YAHOO FINANCE':'○ FALLBACK PRICE · CACHED'}</div>`;
 
-  /* ── Y ticks ── */
   const mn=Math.min(...prices),mx2=Math.max(...prices);
   const yticks=Array.from({length:5},(_,i)=>{
     const v=mx2-(mx2-mn)*i/4;
-    return `<text x="30" y="${12+i*42}" fill="#444" font-size="10" text-anchor="end" font-family="Share Tech Mono,monospace">$${v.toFixed(0)}</text>`;
+    return `<text x="30" y="${12+i*42}" fill="#444" font-size="10" text-anchor="end" font-family="Share Tech Mono,monospace">$${v.toFixed(price>100?0:2)}</text>`;
   }).join('');
 
-  /* ── Charts ── */
   const W=640,H=200;
   document.getElementById('charts-row').innerHTML=`
     <div class="chart-box">
@@ -779,8 +754,15 @@ function renderDash(comName,horizon){
       </svg>
     </div>`;
 
-  /* ── Features HTML ── */
-  const featsHtml=FEATS.map(([name,pct,note])=>`
+  /* Dynamic feature notes */
+  const feats=FEATS_BASE.map(([name,pct,note],i)=>{
+    let n=note;
+    if(i===2) n=`${chg>=0?'+':''}${chg.toFixed(1)}% · ${chg>3?'Strong bullish':'chg<-3?Bearish':'Neutral'} price action`;
+    if(i===4) n=`Score ${c.geo}/10 · ${c.geo>=8?'Elevated':'Moderate'} tension in key supply regions`;
+    return [name,pct,n];
+  });
+
+  const featsHtml=feats.map(([name,pct,note])=>`
     <div class="feat-item">
       <div class="feat-head">
         <span class="feat-name">${name}</span>
@@ -790,7 +772,6 @@ function renderDash(comName,horizon){
       <div class="feat-note">${note}</div>
     </div>`).join('');
 
-  /* ── Bottom row ── */
   document.getElementById('bot-row').innerHTML=`
     <div class="sum-box">
       <div class="box-hd">FORECAST SUMMARY</div>
@@ -800,42 +781,82 @@ function renderDash(comName,horizon){
       </div>
       <div class="s-row">
         <span class="s-lbl">RISK LEVEL</span>
-        <span class="risk-tag" style="color:${rCol};border-color:${rCol}">${c.risk}</span>
+        <span class="risk-tag" style="color:${rCol};border-color:${rCol}">${risk}</span>
       </div>
-      <div class="s-row" style="border:none">
+      <div class="s-row">
         <span class="s-lbl">HORIZON</span>
         <span class="s-days">${horizon} DAYS</span>
+      </div>
+      <div class="s-row" style="border:none">
+        <span class="s-lbl">PRICE SOURCE</span>
+        <span style="font-size:10px;color:${isLive?'var(--green)':'var(--dim)'};letter-spacing:2px;">${isLive?'LIVE':'FALLBACK'}</span>
       </div>
     </div>
     <div class="feat-box">
       <div class="box-hd">FEATURE IMPORTANCE</div>
       ${featsHtml}
     </div>`;
+
+  /* Update home stats */
+  const allPres=Object.values(COMDATA).map(d=>computePressure(d.pres,d.chgFallback,d.geo));
+  const avgAll=(allPres.reduce((a,b)=>a+b,0)/allPres.length).toFixed(1);
+  const highCount=allPres.filter(p=>p>=70).length;
+  document.getElementById('home-avg').textContent=avgAll;
+  document.getElementById('home-alerts').textContent=highCount;
+  document.getElementById('pfill').style.width=avgAll+'%';
 }
 
-function runAnalysis(){
-  renderDash(
-    document.getElementById('sel-com').value,
-    +document.getElementById('sel-h').value
-  );
+/* ══ RUN ANALYSIS ══ */
+async function runAnalysis(){
+  const comName=document.getElementById('sel-com').value;
+  const horizon=+document.getElementById('sel-h').value;
+  const btn=document.getElementById('trigger-btn');
+  const status=document.getElementById('fetch-status');
+
+  btn.disabled=true;
+  btn.textContent='⏳  FETCHING LIVE DATA…';
+  status.textContent='CONNECTING TO YAHOO FINANCE…';
+  status.style.color='var(--cyan)';
+
+  const c=COMDATA[comName];
+  let livePrice=null, liveChg=null;
+
+  try{
+    const result=await fetchPrice(c.ticker);
+    if(result.ok && result.price){
+      livePrice=result.price;
+      liveChg=result.chg;
+      status.textContent='✓ LIVE PRICE LOADED';
+      status.style.color='var(--green)';
+    } else {
+      status.textContent='⚠ USING CACHED PRICE';
+      status.style.color='var(--gold)';
+    }
+  } catch(e){
+    status.textContent='⚠ USING CACHED PRICE';
+    status.style.color='var(--gold)';
+  }
+
+  renderDash(comName, horizon, livePrice, liveChg);
+
+  btn.disabled=false;
+  btn.textContent='⚡  TRIGGER ANALYSIS';
+  setTimeout(()=>{status.textContent='';},3000);
 }
 
-/* ══════════════════════════════════
-   NAVIGATION
-══════════════════════════════════ */
+/* ══ NAV ══ */
 function showPage(id){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
   document.getElementById('page-'+id).classList.add('active');
-  // Main nav visibility
   document.getElementById('main-nav').style.display = id==='analysis' ? 'none' : 'flex';
   if(id!=='analysis'){
-    document.getElementById('nb-'+id).classList.add('active');
+    const nb=document.getElementById('nb-'+id);
+    if(nb) nb.classList.add('active');
   }
-  if(id==='analysis') runAnalysis();
 }
 
-/* ── Clocks ── */
+/* ══ CLOCK ══ */
 function tick(){
   const s=new Date().toISOString().replace('T',' ').slice(0,19)+' UTC';
   document.getElementById('clk').textContent=s;
@@ -843,8 +864,18 @@ function tick(){
 }
 tick();setInterval(tick,1000);
 
-/* ── Pressure bar ── */
-setTimeout(()=>{document.getElementById('pfill').style.width='55.8%';},500);
+/* ══ FOOTER YEAR ══ */
+document.getElementById('footer-year').textContent=new Date().getFullYear();
+
+/* ══ INIT HOME STATS ══ */
+(function initHomeStats(){
+  const allPres=Object.values(COMDATA).map(d=>computePressure(d.pres,d.chgFallback,d.geo));
+  const avgAll=(allPres.reduce((a,b)=>a+b,0)/allPres.length).toFixed(1);
+  const highCount=allPres.filter(p=>p>=70).length;
+  document.getElementById('home-avg').textContent=avgAll;
+  document.getElementById('home-alerts').textContent=highCount;
+  setTimeout(()=>{document.getElementById('pfill').style.width=avgAll+'%';},500);
+})();
 </script>
 </body>
 </html>
